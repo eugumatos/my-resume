@@ -16,11 +16,11 @@ export const SpatialBackground = () => {
     renderer.setSize(width, height);
 
     mountRef.current?.appendChild(renderer.domElement);
-    
+
     const geometry = new THREE.SphereGeometry(0.005, 24, 24);
     const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
-    for (let i = 0; i < 800; i++) {
+    for (let i = 0; i < 300; i++) {
       const star = new THREE.Mesh(geometry, material);
       star.position.x = Math.random() * 10 - 5;
       star.position.y = Math.random() * 10 - 5;
@@ -42,6 +42,5 @@ export const SpatialBackground = () => {
     };
   }, []);
 
-  return <div ref={mountRef}></div>;
+  return <div className="fixed -z-10" ref={mountRef} />;
 };
-
