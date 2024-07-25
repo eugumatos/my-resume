@@ -9,6 +9,8 @@ import { ArrowIcon } from '@/assets/icons/ArrowIcon';
 
 import { useDisclosure } from '@/hooks/useDisclosure';
 import { FadeIn } from '@/components/animations/Fading';
+import { ZoomItem } from '@/components/animations/Zoom';
+
 import { MongoIcon } from '@/assets/icons/MongoIcon';
 import { ReactIcon } from '@/assets/icons/ReactIcon';
 import { NodeIcon } from '@/assets/icons/NodeIcon';
@@ -16,16 +18,9 @@ import { TsIcon } from '@/assets/icons/TsIcon';
 import { NextIcon } from '@/assets/icons/NextIcon';
 import { GitIcon } from '@/assets/icons/GitIcon';
 import { GraphIcon } from '@/assets/icons/GraphIcon';
+import { Astronaut } from '@/assets/icons/Astronaut';
 
-const slides = [
-  { key: 1, component: <ReactIcon /> },
-  { key: 2, component: <ReactIcon /> },
-  { key: 3, component: <ReactIcon /> },
-  { key: 4, component: <ReactIcon /> },
-  { key: 5, component: <ReactIcon /> },
-  { key: 6, component: <ReactIcon /> },
-  { key: 7, component: <ReactIcon /> },
-];
+import { Journey } from '@/components/Journey/Journey';
 
 export default function Home() {
   const { isOpen, onOpen } = useDisclosure();
@@ -43,6 +38,8 @@ export default function Home() {
 
       {isOpen && (
         <React.Fragment>
+          <Header />
+
           <div className="fixed -left-10 top-1/2 flex -rotate-90 items-center gap-1">
             <ArrowIcon rotation="rotate(180)" />
             <span className="font-montserrat text-xs text-white">
@@ -52,10 +49,13 @@ export default function Home() {
 
           <FadeIn>
             <section className="h-screen w-screen">
-              <Header />
               <div className="flex h-full items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-10">
-                  <img className="h-28 w-28 rounded-full" src="" alt="" />
+                  <img
+                    className="h-40 w-40 rounded-full"
+                    src="profile.jpeg"
+                    alt=""
+                  />
                   <h1 className="text-center font-quicksand text-5xl font-bold text-white">
                     INDEPENDENT FRONT-END <br></br> WEB DEVELOPER
                   </h1>
@@ -90,28 +90,53 @@ export default function Home() {
               </div>
 
               <div className="mt-14 flex gap-4">
-                <div className="flex items-center rounded-md border-2 px-5 py-3">
-                  <ReactIcon />
-                </div>
-                <div className="flex items-center rounded-md border-2 px-5 py-3">
-                  <NextIcon />
-                </div>
-                <div className="flex items-center rounded-md border-2 px-5 py-3">
-                  <TsIcon />
-                </div>
-                <div className="flex items-center rounded-md border-2 px-5 py-3">
-                  <NodeIcon />
-                </div>
-                <div className="flex items-center rounded-md border-2 px-4 py-3">
-                  <MongoIcon />
-                </div>
-                <div className="flex items-center rounded-md border-2 px-5 py-3">
-                  <GraphIcon />
-                </div>
-                <div className="flex items-center rounded-md border-2 px-5 py-3">
-                  <GitIcon />
-                </div>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-5 py-4">
+                    <ReactIcon />
+                  </div>
+                </ZoomItem>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-6 py-5">
+                    <NextIcon />
+                  </div>
+                </ZoomItem>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-6 py-5">
+                    <TsIcon />
+                  </div>
+                </ZoomItem>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-5 py-4">
+                    <NodeIcon />
+                  </div>
+                </ZoomItem>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-4 py-3">
+                    <MongoIcon />
+                  </div>
+                </ZoomItem>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-5 py-4">
+                    <GraphIcon />
+                  </div>
+                </ZoomItem>
+                <ZoomItem>
+                  <div className="flex cursor-pointer items-center rounded-md border-2 px-5 py-4">
+                    <GitIcon />
+                  </div>
+                </ZoomItem>
               </div>
+            </div>
+          </section>
+
+          <section className="h-screen w-screen">
+            <div className="flex h-full flex-col items-center justify-center">
+              <div className="text-center text-white">
+                <h1 className="text-center font-quicksand text-5xl font-bold text-white">
+                  Journey
+                </h1>
+              </div>
+              <Journey />
             </div>
           </section>
         </React.Fragment>

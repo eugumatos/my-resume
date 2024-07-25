@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useDisclosure } from "@/hooks/useDisclosure";
+import { useDisclosure } from '@/hooks/useDisclosure';
 
 import { Trail } from './animation/Trail';
 
@@ -7,14 +7,14 @@ type AnimationState = 'welcome' | 'hi';
 
 const greetingDisplayTimes = {
   initialShowTime: 1000, // Time to show the initial greeting
-  hideTime: 2000, // Time to wait before hiding the current greeting
+  hideTime: 1500, // Time to wait before hiding the current greeting
   showTimeAfterHide: 1500, // Time to wait before showing the next greeting
   finalHideTime: 1800, // Time to wait before hiding the last greeting
 };
 
 type GreetingsProps = {
   actionAfterGreetings?: () => void;
-}
+};
 
 export const Greetings = ({ actionAfterGreetings }: GreetingsProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,7 +31,8 @@ export const Greetings = ({ actionAfterGreetings }: GreetingsProps) => {
 
         timeoutId = setTimeout(() => {
           onOpen();
-          animationRef.current = animationRef.current === 'welcome' ? 'hi' : 'welcome';
+          animationRef.current =
+            animationRef.current === 'welcome' ? 'hi' : 'welcome';
 
           timeoutId = setTimeout(() => {
             onClose();
@@ -41,7 +42,10 @@ export const Greetings = ({ actionAfterGreetings }: GreetingsProps) => {
       }, greetingDisplayTimes.hideTime);
     };
 
-    timeoutId = setTimeout(handleGreetings, greetingDisplayTimes.initialShowTime);
+    timeoutId = setTimeout(
+      handleGreetings,
+      greetingDisplayTimes.initialShowTime,
+    );
 
     return () => clearTimeout(timeoutId);
   }, []);
@@ -49,10 +53,14 @@ export const Greetings = ({ actionAfterGreetings }: GreetingsProps) => {
   return (
     <Trail isOpen={isOpen}>
       {animationRef.current === 'hi' && (
-        <h1 className="font-quicksand text-6xl font-semibold text-white">Hi!</h1>
+        <h1 className="font-quicksand text-6xl font-semibold text-white">
+          Hi!
+        </h1>
       )}
       {animationRef.current === 'welcome' && (
-        <h1 className="font-quicksand text-6xl font-semibold text-white">Welcome :)</h1>
+        <h1 className="font-quicksand text-6xl font-semibold text-white">
+          Welcome :)
+        </h1>
       )}
     </Trail>
   );
