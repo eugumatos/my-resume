@@ -42,15 +42,15 @@ const EmblaCarousel: React.FC<PropType> = props => {
         <div className="embla__container">
           {slides.map(slide => (
             <div className="embla__slide" key={slide.id}>
-              <div className="flex flex-col gap-4">
+            
                 <div
                   key={slide.id}
-                  className="max-w-screen-md flex-col justify-end gap-4 rounded-md border border-white p-5"
+                  className="rounded-md border text-end  border-white p-5"
                 >
-                  <span className="text-end font-montserrat font-bold text-white">
+                  <span className="font-montserrat font-bold text-white">
                     {slide.dateRange}
                   </span>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 mt-4">
                     <div className="flex-1">
                       <Astronaut />
                     </div>
@@ -60,13 +60,13 @@ const EmblaCarousel: React.FC<PropType> = props => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center justify-end gap-3">
+                  <div className="flex items-center justify-end gap-3 mt-4">
                     {slide.icons.map((icon, iconIndex) => (
                       <React.Fragment key={iconIndex}>{icon}</React.Fragment>
                     ))}
                   </div>
                 </div>
-              </div>
+              
             </div>
           ))}
         </div>

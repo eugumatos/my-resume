@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Image from "next/image"
+
 import { SpatialBackground } from '@/components/SpatialBackground';
 import { Greetings } from '@/components/Greetings/Greetings';
 import { Header } from '@/components/Header/Header';
@@ -51,9 +54,11 @@ export default function Home() {
             <section className="h-screen w-screen">
               <div className="flex h-full items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-10">
-                  <img
-                    className="h-40 w-40 rounded-full"
-                    src="profile.jpeg"
+                  <Image
+                    width={200}
+                    height={200}
+                    className="rounded-full"
+                    src="/profile.jpeg"
                     alt=""
                   />
                   <h1 className="text-center font-quicksand text-5xl font-bold text-white">
